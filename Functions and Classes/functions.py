@@ -163,3 +163,52 @@ def make_icecream(flavour,*toppings):
         print("- " + topping)
 
 make_icecream('vanilla','cherry','chocolate')
+
+# Using arbritary named arguments:
+
+def build_profile(first,last, **user_info):
+    profile = {}
+    profile['first_name'] = first
+    profile['last_name'] = last
+
+    for key,value in user_info.items():
+        profile[key] = value 
+
+    return profile
+
+user_profile = build_profile('albert','einstein',location='princeton',field='physics')
+print(user_profile)
+
+# Storing functions into modules:
+
+""" The functions has an advantage to separe code blocks from the main program. That's why we use descritive names to 
+functions,to make them easy to understand. We can move further and store the functions in a different file called a 
+mode and them, import this module into the main program. 
+    An import instruction tells Python to let a module available in the program file that will be executed. 
+Storing functions in a differente file allow us to hide the details of a program and focus in the highest level of logics.
+It also allow us to maintaing the code in a easiest way and even use functions in other programs. """
+
+# Importing a full module:
+# To import a module, first we need to write one. All files ending with .py can be modules that we
+# want to import into our main program.
+
+# Let's write a module that has the make_icecreams function called icecream.py
+
+# We can import and call the make icecream function:
+import icecream
+
+icecream.make_icecreams('strawberry','chocolate','oreo spring','blueberry jelly')
+
+# Importing specific functions
+# Same way, but we can separate functions with comma
+
+from icecream import make_icecreams
+
+# We can use alias to functions like:
+from icecream import make_icecreams as mi
+
+# We can use alias for modules like
+import icecream as ice
+
+# We can import every function from a module with:
+from icecream import *
