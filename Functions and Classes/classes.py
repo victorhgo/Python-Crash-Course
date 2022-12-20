@@ -109,7 +109,9 @@ band2.describe_band()
 band2.successfull_album()
 
 # Default value to an attribute:
-""" Each attribute from a class requires an inicial value, even if it's zero or an empty string. In some cases, we can specify this init value into the __init__ method. If it's done by an attribute, we don't need to include a parameter to it."""
+""" Each attribute from a class requires an inicial value, even if it's zero or an empty string. In some cases, 
+we can specify this init value into the __init__ method. If it's done by an attribute, we don't need to include 
+a parameter to it."""
 
 # Continuing with our Band class, let's add one more info:
 # Country = England to make England as the default country:
@@ -152,5 +154,90 @@ band5.successfull_album()
 band5.country_origin()
 
 # Using a method to modify an attribute value:
+""" We can have methods to modify attributes. instead of accessing atributes
+directly, we can point the new value to a method that will internally refresh."""
 
-# Page 208
+class Band():
+    """ A simple try to create a band"""
+    def __init__(self,name,genre,year,most_successfull):
+        self.name = name
+        self.genre = genre
+        self.year = year
+        self.most_successfull = most_successfull
+        self.country = 'england'
+    """ Simple description of the band """
+    def describe_band(self):
+        print(self.name.title() + ' was formed in ' + str(self.year) 
+        + '. Their main genre was ' + self.genre.title())
+    """ Most successfull album """
+    def successfull_album(self):
+        print("Their most successfull album was " + self.most_successfull.title())
+    def country_origin(self):
+        print("The band was formed in " + self.country.title())
+    def change_country(self,origin_country):
+        self.country = origin_country
+
+newband = Band('spitz','rock',1991,'hachimitsu')
+newband.change_country('japan')
+newband.describe_band()
+newband.successfull_album()
+newband.country_origin()
+
+# Inheritance in OOP:
+
+""" We can use inheritance do create a new class from an older one. When a class inherits the attributes 
+from another, it will take every attributes automatically. The child class inherits every attributes and
+methods from parent class."""
+
+# The __init__ method for a child class
+
+""" When defining a child class, we must get all attributes from parent class. To do that, the __init__ method for the new class
+will need "help" from the parent class."""
+
+# Let's create a Car class.
+
+class Car():
+    """ Simple try to simulate a car """
+    def __init__(self,brand,model,year):
+        self.brand = brand
+        self.model = model
+        self.year = year
+        self.odometer_reading = 0
+    """ To get all information about our car"""
+    def get_descriptive_name(self):
+        long_name = self.brand + ' ' + self.model 
+        return long_name.title()
+    def read_odometer(self):
+        print("This car has " + str(self.odometer_reading) 
+        + " miles on it.")
+    def update_odometer(self,mileage):
+        if mileage >= self.odometer_reading:
+            self.odometer_reading = mileage
+        else:
+            print("You can't roll back an odometer!")
+    def increment_odometer(self,miles):
+        self.odometer_reading += miles
+
+# Now we can create a new child class for electric cars:
+class Electric_car(Car):
+    """ Simple try to simulate specific aspects of electric cars"""
+    def __init__(self, brand, model, year):
+        super().__init__(brand, model, year)
+        self.battery_size = 80
+    """ Adding specific attributes for electric cars"""
+    def describe_battery(self):
+        print("This car has a",str(self.battery_size),
+        "-KWh battery.")
+    def define_battery(self,battery_capacity):
+        self.battery_size = battery_capacity
+
+
+my_tesla = Electric_car('tesla','model x', 2022)
+print(my_tesla.get_descriptive_name())
+my_tesla.define_battery(180)
+my_tesla.describe_battery()
+
+# The super() function helps Python to create conections between parent and child class.
+
+# Page 213
+ 
