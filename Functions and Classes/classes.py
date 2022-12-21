@@ -219,6 +219,8 @@ class Car():
         self.odometer_reading += miles
 
 # Now we can create a new child class for electric cars:
+# The super() function helps Python to create conections between parent and child class.
+
 class Electric_car(Car):
     """ Simple try to simulate specific aspects of electric cars"""
     def __init__(self, brand, model, year):
@@ -237,7 +239,69 @@ print(my_tesla.get_descriptive_name())
 my_tesla.define_battery(180)
 my_tesla.describe_battery()
 
-# The super() function helps Python to create conections between parent and child class.
+# Overwriting methods of parent class
+""" We can overwrite a method from parent class by overwriting it on the child class."""
+# Instances as attributes:
+""" When we want to create something from the real world, we can add more and more details 
+in a class. When we do that, we add a lot of attributes into a class. In these situation,
+we can write a part of a class as a whole new class. Our major class could be split into minor classes
+that works together."""
 
-# Page 213
- 
+# Using our electric car again as exemple:
+
+""" We can add specific details for the battery, but it will be easier if we define
+a new Battery class and use one battery's instance as an attribute of Electric_Car."""
+
+class Car():
+    """ Simple try to simulate a car """
+    def __init__(self,brand,model,year):
+        self.brand = brand
+        self.model = model
+        self.year = year
+        self.odometer_reading = 0
+    """ To get all information about our car"""
+    def get_descriptive_name(self):
+        long_name = self.brand + ' ' + self.model 
+        return long_name.title()
+    def read_odometer(self):
+        print("This car has " + str(self.odometer_reading) 
+        + " miles on it.")
+    def update_odometer(self,mileage):
+        if mileage >= self.odometer_reading:
+            self.odometer_reading = mileage
+        else:
+            print("You can't roll back an odometer!")
+    def increment_odometer(self,miles):
+        self.odometer_reading += miles
+    
+class Battery():
+    """ Let's try to simulate a battery"""
+    def __init__(self):
+        self.battery_size = 70
+    """ Describe the battery's details"""    
+    def describe_battery(self):
+        print("This car has a",self.battery_size,"-KWh battery")
+    """ Get new battery size for a different car"""    
+    def get_battery_info(self,capacity):
+        self.battery_size = capacity
+    """ The distance that the car can run"""
+    def get_range(self):
+        if self.battery_size == 70:
+            range = 240
+        elif self.battery_size == 85:
+            range = 270 
+        print("The car can go approximately", range,
+        "miles on a full charge.")
+
+class ElectricCar(Car):
+    def __init__(self, brand, model, year):
+        super().__init__(brand, model, year)
+        self.battery = Battery()
+
+new_car = ElectricCar('porsche','taycan',2020)
+print(new_car.get_descriptive_name())
+new_car.battery.get_battery_info(85)
+new_car.battery.describe_battery()
+new_car.battery.get_range()
+
+# Importing Classes:
