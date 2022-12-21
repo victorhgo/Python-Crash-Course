@@ -34,7 +34,49 @@ If we want to store the content of a file, we can store the lines of a file into
 
 with open('text_files\pi_digits1.txt') as pi_digits:
     lines = pi_digits.readlines()
-    for line in lines:
-        print(line.rstrip())
+
+for line in lines:
+    print(line.rstrip())
 
 # Working with the content of a file.
+""" In this example, let's explore some of the pi digits"""
+
+file_name = 'text_files\pi_digits1.txt'
+
+with open(file_name) as file_object:
+    lines = file_object.readlines()
+pi_string = ''
+
+for line in lines:
+    pi_string += line.rstrip()
+    print(pi_string)
+    print(len(pi_string))
+
+# Gigantic files: 1 million of digits.
+""" Let's open a file that contains 1 million digits of Pi"""
+pi_million = 'text_files\pi_million_digits.txt'
+
+with open(pi_million) as file_object:
+    lines = file_object.readlines()
+
+pi_string = ''
+for line in lines:
+    pi_string += line.strip()
+    print(pi_string[:52] + '...')
+    print(len(pi_string))
+
+# Is my birthday in Pi?
+pi_million = 'text_files\pi_million_digits.txt'
+
+with open(pi_million) as file_object:
+    lines = file_object.readlines()
+    
+pi_string = ''
+for line in lines:
+    pi_string += line.rstrip()
+
+birthday = input("Birthday (mmddyy): ")
+if birthday in pi_string:
+    print("Your birthday appears in pi!")
+else:
+    ("Your birthday is not in pi!")

@@ -304,4 +304,4 @@ new_car.battery.get_battery_info(85)
 new_car.battery.describe_battery()
 new_car.battery.get_range()
 
-# Importing Classes:
+# End of Chapter
