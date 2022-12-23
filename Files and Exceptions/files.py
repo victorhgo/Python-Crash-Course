@@ -80,3 +80,42 @@ if birthday in pi_string:
     print("Your birthday appears in pi!")
 else:
     ("Your birthday is not in pi!")
+
+# Write data to a file:
+""" We can write data to a open file using open() with a second argument to tell Python that
+we want to write data to a file."""
+
+write_file = 'text_files\hello.txt'
+
+""" Open file as Write, Read, Concatenation 'a' and R/W 'r+ '"""
+with open(write_file, 'w') as file_object:
+    file_object.write("Hello World")
+
+""" We use the write() method to write string in the opened file"""
+"""
+write_user = 'text_files\hellouser.txt'
+
+with open(write_user, 'w') as writing:
+    input_user = input("Data to be stored: ")
+    writing.write(input_user)"""
+
+""" The write() function does not add lines to the string. To add line break in
+write() instruction can be done by inserting an \n"""
+
+write_line = 'text_files\linebreak.txt'
+
+with open(write_line, 'w') as writing1:
+    writing1.write("Inserting new lines\n")
+    writing1.write("To this file\n")
+
+# We can concatenate data into a file:
+""" We can add more data to a file instead of overwrite the existing data. We can
+do that by opening a file in the concat mode 'a'."""
+
+concat_test = 'text_files\linebreak.txt'
+
+with open(concat_test, 'a') as concat:
+    i = 0
+    while(i < 10):
+        concat.write("Adding more and more information + 1\n")
+        i += 1

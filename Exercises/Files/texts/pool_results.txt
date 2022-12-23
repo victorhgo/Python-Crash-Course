@@ -1,0 +1,38 @@
+                                    -- Pool Results --
+------------------------------------------
+
+Name: Victor Hugo
+Do you like it: Yes
+Answer: I love working on something that I need to think, resolve issues and fix problems.
+
+------------------------------------------
+
+Name: Ana Julia
+Do you like it: Not
+Answer: I don't like it because it is too dificult for me to learn.
+
+------------------------------------------
+
+Name: Albert Einstein
+Do you like it: Yes
+Answer: I love programming because I can automatize a lot of boring activities and focus on what matters the most to me.
+
+------------------------------------------
+
+Name: Michael Faraday
+Do you like it: Not
+Answer: I don't know how to use modern computers!!!
+
+------------------------------------------
+
+Name: Erwin Schrodinger
+Do you like it: Both
+Answer: It may depends whether the computer is on or not.
+
+------------------------------------------
+
+Name: Sheldon Cooper
+Do you like it: Yes
+Answer: Absolutely, I love how computers can do exactly what I say to it.
+
+------------------------------------------

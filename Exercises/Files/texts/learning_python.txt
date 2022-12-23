@@ -1,0 +1,4 @@
+In Python, we can work with almost all programming paradigms.
+    In Python, there is no need to allocate the memory to be used, Python will do that automatically.
+    In Python, we learned the principles of Object Oriented Programming.
+    In Python, we learned how to deal with dictionaries.
