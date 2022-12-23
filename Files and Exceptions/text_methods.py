@@ -10,3 +10,4 @@ def count_words(filename):
         words = contents.split()
         word_count = len(words)
         print(f"The file {filename} has approximatelly {word_count} words")
+
